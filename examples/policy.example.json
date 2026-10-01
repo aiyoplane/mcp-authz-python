@@ -1,0 +1,33 @@
+{
+  "version": "policy_demo_v1",
+  "rules": [
+    {
+      "action_type": "deploy",
+      "action_target": "staging",
+      "effect": "allow",
+      "reason_code": "POLICY_ALLOW",
+      "reason_detail": "Deploys to staging are always permitted in the demo policy."
+    },
+    {
+      "action_type": "deploy",
+      "action_target": "production",
+      "effect": "deny",
+      "reason_code": "POLICY_DENY",
+      "reason_detail": "Demo policy blocks all production deploys; configure a real policy to override."
+    },
+    {
+      "action_type": "payment",
+      "amount_max": 100,
+      "effect": "allow",
+      "reason_code": "POLICY_ALLOW",
+      "reason_detail": "Demo policy allows payments up to $100."
+    },
+    {
+      "action_type": "payment",
+      "amount_min": 101,
+      "effect": "deny",
+      "reason_code": "POLICY_DENY",
+      "reason_detail": "Demo policy blocks payments over $100; configure a real policy with a human approver for larger amounts."
+    }
+  ]
+}

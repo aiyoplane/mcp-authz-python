@@ -1,0 +1,69 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aiyoplane-mcp-authz"
+version = "1.0.1"
+description = "Reference implementation of how Aiyo's Runtime Decision Point composes above an MCP server. Governs consequential tool invocations at the protocol boundary."
+readme = "README.md"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "Aiyoplane, Inc.", email = "rashon@aiyoplane.com"},
+]
+requires-python = ">=3.9"
+keywords = [
+    "aiyo",
+    "aiyoplane",
+    "mcp",
+    "model-context-protocol",
+    "authorization",
+    "runtime-decision-point",
+    "rdp",
+    "execution-receipt",
+    "settlement-verified",
+    "economic-execution-authorization",
+    "aeap",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security :: Cryptography",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Systems Administration :: Authentication/Directory",
+]
+dependencies = [
+    "aiyoplane-verify>=1.0.2",
+    "cryptography>=42.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-asyncio>=0.21",
+]
+
+[project.urls]
+Homepage = "https://aiyoplane.com"
+Repository = "https://github.com/aiyoplane/mcp-authz-python"
+Issues = "https://github.com/aiyoplane/mcp-authz-python/issues"
+Documentation = "https://aiyoplane.com/blog/aiyo-mcp-authz"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+aiyoplane_mcp_authz = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+asyncio_mode = "auto"
